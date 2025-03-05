@@ -12,10 +12,10 @@ namespace TallerBT.BT
         {
             foreach (Node child in children)
             {
-                if (child.Execute()) // Si un hijo tiene éxito, el selector termina con éxito
+                if (child.Execute()) 
                     return true;
             }
-            return false; // Si ninguno tuvo éxito, el selector falla
+            return false; 
         }
     }
 }

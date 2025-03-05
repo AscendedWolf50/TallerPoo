@@ -17,7 +17,7 @@ namespace TallerBT.BT
 
         public override bool Execute()
         {
-            return child.Execute(); // Llama a su único hijo
+            return child.Execute(); 
         }
     }
 }
