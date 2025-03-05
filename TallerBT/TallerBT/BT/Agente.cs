@@ -6,19 +6,29 @@ using System.Threading.Tasks;
 
 namespace TallerBT.BT
 {
+
     public class Agente
     {
-        public int Position { get; private set; }
+        public int Posicion { get; private set; }  // Se cambia "Position" por "Posicion"
 
-        public Agente(int startPos)
+        public Agente(int posicionInicial)
         {
-            Position = startPos;
+            Posicion = posicionInicial;
         }
 
-        public void Move(int step)
+        public int DistanciaAlObjetivo(int objetivo)
         {
-            Position += step;
-            Console.WriteLine($"Agente moviéndose... nueva posición: {Position}");
+            return Math.Abs(objetivo - Posicion);
+        }
+
+        public void MoverHaciaObjetivo(int objetivo)
+        {
+            if (Posicion < objetivo)
+                Posicion++;
+            else if (Posicion > objetivo)
+                Posicion--;
+
+            Console.WriteLine($"Agente se movió a la posición: {Posicion}");
         }
     }
 }

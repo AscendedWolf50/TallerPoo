@@ -8,6 +8,13 @@ namespace TallerBT.BT
 {
     public abstract class Node
     {
-        public abstract bool Execute(); // Método base para los nodos
+        protected List<Node> children = new List<Node>();
+
+        public abstract bool Execute();
+
+        public void AddChild(Node child)
+        {
+            children.Add(child);
+        }
     }
 }

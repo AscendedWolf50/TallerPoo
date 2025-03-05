@@ -6,16 +6,15 @@ using System.Threading.Tasks;
 
 namespace TallerBT.BT
 {
-    public class Sequence : Composite
+    public class Sequence : Node
     {
         public override bool Execute()
         {
             foreach (Node child in children)
             {
-                if (!child.Execute()) 
-                    return false;
+                if (!child.Execute()) return false;
             }
-            return true; 
+            return true;
         }
     }
 }

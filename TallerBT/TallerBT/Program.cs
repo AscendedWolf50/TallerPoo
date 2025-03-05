@@ -5,26 +5,28 @@ class Program
 {
     static void Main()
     {
-        
         Agente agent = new Agente(0);
+        int distanciaValida = 2;
+        int objetivo = 10;
+        int tiempoEspera = 1000;
 
         // Crear nodos del árbol
-        Selector selector = new Selector();
-        MoveToTarget moveTask = new MoveToTarget(agent, 10, 2);
-        WaitTask waitTask = new WaitTask(1000);
+        Selector selector = new Selector(agent, distanciaValida, objetivo);
+        MoveToTarget moveTask = new MoveToTarget(agent, objetivo, distanciaValida);
+        WaitTask waitTask = new WaitTask(tiempoEspera);
 
-       
-        selector.AddChild(moveTask);
-        selector.AddChild(waitTask);
+        // Crear secuencia que contiene el selector y la espera
+        Sequence sequence = new Sequence();
+        sequence.AddChild(selector);
+        sequence.AddChild(waitTask);
 
-        
-        Root root = new Root(selector);
+        // Raíz del árbol
+        Root root = new Root(sequence);
 
-        
         Console.WriteLine("Iniciando... \n");
-        while (!moveTask.Execute()) // ejecutar hasta que el agente llegue al objetivo
+        while (!moveTask.Execute()) // Ejecutar hasta que el agente llegue al objetivo
         {
-            root.Execute(); // 
+            root.Execute();
         }
         Console.WriteLine("\nCompletado.");
     }

@@ -6,16 +6,32 @@ using System.Threading.Tasks;
 
 namespace TallerBT.BT
 {
-    public class Selector : Composite
+    public class Selector : Node
     {
+        private Agente agent;
+        private int distanciaValida;
+        private int objetivo;
+
+        public Selector(Agente agent, int distanciaValida, int objetivo)
+        {
+            this.agent = agent;
+            this.distanciaValida = distanciaValida;
+            this.objetivo = objetivo;
+        }
+
         public override bool Execute()
         {
+            if (agent.DistanciaAlObjetivo(objetivo) <= distanciaValida)
+            {
+                Console.WriteLine("El objetivo está dentro de la distancia válida.");
+                return true;
+            }
+
             foreach (Node child in children)
             {
-                if (child.Execute()) 
-                    return true;
+                if (child.Execute()) return true;
             }
-            return false; 
+            return false;
         }
     }
 }

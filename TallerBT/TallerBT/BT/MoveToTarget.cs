@@ -6,29 +6,29 @@ using System.Threading.Tasks;
 
 namespace TallerBT.BT
 {
-    public class MoveToTarget : TaskNode
+    public class MoveToTarget : Node
     {
         private Agente agent;
-        private int target;
-        private int step;
+        private int objetivo;
+        private int distanciaValida;
 
-        public MoveToTarget(Agente agent, int targetPos, int stepSize)
+        public MoveToTarget(Agente agent, int objetivo, int distanciaValida)
         {
             this.agent = agent;
-            target = targetPos;
-            step = stepSize;
+            this.objetivo = objetivo;
+            this.distanciaValida = distanciaValida;
         }
 
         public override bool Execute()
         {
-            if (agent.Position >= target)
+            if (agent.DistanciaAlObjetivo(objetivo) > distanciaValida)
             {
-                Console.WriteLine($"¡Objetivo alcanzado en {target}!");
-                return true;
+                agent.MoverHaciaObjetivo(objetivo);
+                return false;  // Todavía no ha llegado al objetivo
             }
 
-            agent.Move(step);
-            return false;
+            Console.WriteLine("El agente ha alcanzado la distancia válida.");
+            return true;  // Objetivo alcanzado
         }
     }
 }

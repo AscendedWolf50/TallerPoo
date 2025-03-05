@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 
 namespace TallerBT.BT
 {
-    public class WaitTask : TaskNode
+    public class WaitTask : Node
     {
-        private int waitTime;
+        private int tiempoEspera;
 
-        public WaitTask(int time)
+        public WaitTask(int tiempoEspera)
         {
-            waitTime = time;
+            this.tiempoEspera = tiempoEspera;
         }
 
         public override bool Execute()
         {
-            Console.WriteLine($"Esperando {waitTime}ms...");
-            Thread.Sleep(waitTime);
+            Console.WriteLine($"Esperando {tiempoEspera / 1000} segundos...");
+            Thread.Sleep(tiempoEspera);
             return true;
         }
     }
