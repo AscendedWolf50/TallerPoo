@@ -1,18 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace TallerBT.BT
 {
-    public class MoveToTarget : Node
+    public class MoveToTarget : TaskNode
     {
         private Agente agent;
-        private int objetivo;
-        private int distanciaValida;
+        private Vector2 objetivo;
+        private float distanciaValida;
 
-        public MoveToTarget(Agente agent, int objetivo, int distanciaValida)
+        public MoveToTarget(Agente agent, Vector2 objetivo, float distanciaValida)
         {
             this.agent = agent;
             this.objetivo = objetivo;
@@ -24,11 +25,11 @@ namespace TallerBT.BT
             if (agent.DistanciaAlObjetivo(objetivo) > distanciaValida)
             {
                 agent.MoverHaciaObjetivo(objetivo);
-                return false;  // Todavía no ha llegado al objetivo
+                return false; // Todavía no ha llegado
             }
 
             Console.WriteLine("El agente ha alcanzado la distancia válida.");
-            return true;  // Objetivo alcanzado
+            return true;
         }
     }
 }
