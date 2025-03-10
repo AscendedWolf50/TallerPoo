@@ -6,7 +6,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        Agente agent = new Agente(new Vector2(0, 0));
+        Agent agent = new Agent(new Vector2(0, 0));
         Vector2 objetivo = new Vector2(10, 0);
         float distanciaValida = 1.0f;
         float tiempoEspera = 1.0f;

@@ -9,11 +9,11 @@ namespace TallerBT.BT
 {
     public class Selector : Composite
     {
-        private Agente agent;
+        private Agent agent;
         private float distanciaValida;
         private Vector2 objetivo;
 
-        public Selector(Agente agent, float distanciaValida, Vector2 objetivo)
+        public Selector(Agent agent, float distanciaValida, Vector2 objetivo)
         {
             this.agent = agent;
             this.distanciaValida = distanciaValida;

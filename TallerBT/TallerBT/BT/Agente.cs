@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 namespace TallerBT.BT
 {
 
-    public class Agente
+    public class Agent
     {
         public Vector2 Posicion { get; private set; }
 
-        public Agente(Vector2 posicionInicial)
+        public Agent(Vector2 posicionInicial)
         {
             Posicion = posicionInicial;
         }

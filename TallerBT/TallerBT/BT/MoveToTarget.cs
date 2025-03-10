@@ -9,11 +9,11 @@ namespace TallerBT.BT
 {
     public class MoveToTarget : TaskNode
     {
-        private Agente agent;
+        private Agent agent;
         private Vector2 objetivo;
         private float distanciaValida;
 
-        public MoveToTarget(Agente agent, Vector2 objetivo, float distanciaValida)
+        public MoveToTarget(Agent agent, Vector2 objetivo, float distanciaValida)
         {
             this.agent = agent;
             this.objetivo = objetivo;
